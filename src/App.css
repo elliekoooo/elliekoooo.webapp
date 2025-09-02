@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "spaceGrotesk";
+  src: url("/src/assets/fonts/SpaceGrotesk.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "inter";
+  src: url("/src/assets/fonts/Inter.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-family: spaceGrotesk;
+  font-size: 5rem;
+}
+
+h2 {
+  font-family: spaceGrotesk;
+  font-size: 3rem;
+}
+
+h3 {
+  font-family: spaceGrotesk;
+  font-size: 1.5rem;
+}
+
+body {
+  font-family: inter;
+}
+
+.arrow-body {
+  --stroke: 18;
+  --dash: 28;
+  --gap: 22;
+  fill: none;
+  stroke: url(#grad);
+  stroke-width: var(--stroke);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.arrow-head {
+  fill: none;
+  stroke: url(#grad);
+  stroke-width: 20;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}

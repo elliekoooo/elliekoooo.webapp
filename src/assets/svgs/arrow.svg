@@ -1,0 +1,60 @@
+import * as React from "react";
+
+type WavyArrowProps = React.SVGProps<SVGSVGElement> & {
+  gradientId?: string;
+  colors?: [string, string, string]; 
+};
+
+const WavyArrow: React.FC<WavyArrowProps> = ({
+  gradientId = "wavyArrowGradient",
+  colors = ["#6EE7F9", "#8B5CF6", "#F472B6"],
+  width = 200,
+  height = 60,
+  ...props
+}) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 800 240"
+    width={width}
+    height={height}
+    fill="none"
+    {...props}
+  >
+    <defs>
+      <linearGradient
+        id={gradientId}
+        x1="0"
+        y1="0"
+        x2="800"
+        y2="0"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop offset="0%" stopColor={colors[0]} />
+        <stop offset="50%" stopColor={colors[1]} />
+        <stop offset="100%" stopColor={colors[2]} />
+      </linearGradient>
+    </defs>
+
+    {/* 몸통 */}
+    <path
+      d="M 60 120
+         C 140 60,  220 180, 300 120
+         S 460 60,  540 120
+         S 680 180, 720 120"
+      stroke={`url(#${gradientId})`}
+      strokeWidth={18}
+      strokeLinecap="round"
+      strokeDasharray="28 22"
+    />
+
+    {/* '>' 모양 머리 */}
+    <path
+      d="M 728 98 L 760 120 M 728 142 L 760 120"
+      stroke={`url(#${gradientId})`}
+      strokeWidth={20}
+      strokeLinecap="round"
+    />
+  </svg>
+);
+
+export default WavyArrow;
