@@ -2,21 +2,23 @@ import { Route, Routes } from 'react-router'
 import './App.css'
 import { Home } from './layout/Home'
 import { About } from './layout/About'
-import { SideBar } from './layout/Header'
+import { Projects } from './layout/Projects'
+import { Contact } from './layout/Contact'
+import { Header } from './layout/Header'
+import { MenuBar } from './layout/MenuBar'
 
 function App() {
 
   return (
     <div className="">
-      {/* <div className="fixed left-[50%] translate-x-[-50%]">
-        <SideBar></SideBar>
-      </div> */}
+      <MenuBar></MenuBar>
+      <Header></Header>
       <div>
         <Routes>
           <Route path='/' element={<Home/>} ></Route>
-          <Route path='/about' element={<About/>} ></Route>
-          <Route path='/projects' element={<Home/>} ></Route>
-          <Route path='/contact' element={<Home/>} ></Route>
+          <Route path='about' element={<About/>} ></Route>
+          <Route path='projects' element={<Projects/>} ></Route>
+          <Route path='contact' element={<Contact/>} ></Route>
         </Routes>
       </div>
     </div>

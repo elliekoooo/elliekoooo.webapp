@@ -1,12 +1,24 @@
 import { useState, type PropsWithChildren } from "react";
 import { WavyText } from "../motion/WavyText";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ColorfulText } from "../motion/Colorful";
+import GradientShimmer from "../motion/GradientShimmer";
 
-export const Card = (props:{order:number, wavyText: string, icon:any} & PropsWithChildren) => {
+export const Card = (props:{order:number, set:(v:number)=>void, wavyText: string, icon:any} & PropsWithChildren) => {
     const [_order, setOrdering] = useState(0);
 
+    const handleStop = () => {
+        props.set(0);
+        setOrdering(0);
+    }
+
+    const handleMove = () => {
+        props.set(props.order);
+        setOrdering(props.order);
+    }
+
     return (
-        <div className="hover:cursor-pointer" onMouseEnter={()=> setOrdering(props.order)} onMouseLeave={()=>setOrdering(0)}>
+        <div className="hover:cursor-pointer" onMouseEnter={()=> handleMove()} onMouseLeave={()=>handleStop()}>
             <div className="uppercase text-lg flex">
                 <span>
                     <FontAwesomeIcon icon={props.icon} />
@@ -14,10 +26,10 @@ export const Card = (props:{order:number, wavyText: string, icon:any} & PropsWit
                 {
                     props.order == _order ?
                         <span className="mx-5">
-                            <WavyText text={props.wavyText}></WavyText>
+                            <GradientShimmer text={props.wavyText}></GradientShimmer>
                         </span>
                                 :
-                        <span className="tracking-widest mx-5">{props.wavyText}</span>
+                        <span className=" mx-5">{props.wavyText}</span>
                 }
             </div>
             { props.children  }
