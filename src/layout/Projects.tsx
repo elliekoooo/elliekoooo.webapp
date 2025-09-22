@@ -25,18 +25,8 @@ export const Projects = () => {
                 I usually built them as part of my portfolio, using React, TypeScript, and Bulma(or other CSS libraries).<br/>
                 Each project includes a live demo website.
             </div>
-            <div className="relative w-full">
+            <div className="w-full">
                 <ImageSlider srcs={projects}/>
-                <div className="absolute bottom-5 right-5 z-30 px-2 bg-red-500 rounded-full m-2">
-                    <span className="inline-flex items-center justifiy-center p-1">
-                        <FontAwesomeIcon icon={faLink} color="white" size="xl"></FontAwesomeIcon>
-                    </span>
-                </div>
-                <div className="absolute bottom-5 right-20 z-30 px-2 bg-yellow-500 rounded-full m-2">
-                    <span className="inline-flex items-center justifiy-center p-1">
-                        <FontAwesomeIcon icon={faCode} color="white" size="xl"></FontAwesomeIcon>
-                    </span>
-                </div>
             </div>
         </PageTransition>
     )

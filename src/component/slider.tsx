@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
+import { faCaretLeft, faCaretRight, faCode, faLink } from "@fortawesome/free-solid-svg-icons";
+import { ColorfulText } from "../motion/Colorful";
+import { Link } from "react-router-dom";
 
 type imageInfo = {
     srcs: string[] | unknown[]
@@ -12,6 +14,7 @@ export const ImageSlider:React.FC<imageInfo> = (
     const [_srcs, setSrcs] = useState([]);
     const [left, setLeft] = useState(0);
     const [right, setRight] = useState(1); 
+    const [show, setShow] = useState(0);
         
     const goLeft = () => {
         setLeft(l=> l-1);
@@ -70,6 +73,18 @@ export const ImageSlider:React.FC<imageInfo> = (
                         <FontAwesomeIcon icon={faCaretRight} color="white"></FontAwesomeIcon>
                     </span>
                 </button>
+                <Link to={"https://elliekoooo.github.io/frontend-mentor-challenges/"}>
+                    <div className="absolute z-10 hover:bg-black/70 hover:cursor-pointer h-full w-[50%] flex justify-center items-center group">
+                        <span className="inline-flex text-5xl invisible group-hover:visible">
+                            <ColorfulText text="LINK"></ColorfulText>
+                        </span>
+                    </div>
+                </Link>
+                <div className="absolute right-0 z-10 hover:bg-black/70 hover:cursor-pointer h-full w-[50%] flex justify-center items-center group">
+                    <span className="inline-flex text-5xl invisible group-hover:visible">
+                        <ColorfulText text="CODE"></ColorfulText>
+                    </span>
+                </div>
             </div>
         </div>
     )

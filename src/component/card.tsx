@@ -1,7 +1,5 @@
 import { useState, type PropsWithChildren } from "react";
-import { WavyText } from "../motion/WavyText";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ColorfulText } from "../motion/Colorful";
 import GradientShimmer from "../motion/GradientShimmer";
 
 export const Card = (props:{order:number, set:(v:number)=>void, wavyText: string, icon:any} & PropsWithChildren) => {
